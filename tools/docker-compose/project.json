@@ -1,7 +1,7 @@
 {
-  "name": "migrations",
+  "name": "docker-compose",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "tools/migrations/src",
+  "sourceRoot": "tools/docker-compose/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -9,28 +9,28 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/tools/migrations",
-        "main": "tools/migrations/src/index.ts",
-        "tsConfig": "tools/migrations/tsconfig.lib.json",
+        "outputPath": "dist/tools/docker-compose",
+        "main": "tools/docker-compose/src/index.ts",
+        "tsConfig": "tools/docker-compose/tsconfig.lib.json",
         "assets": [
-          "tools/migrations/*.md",
+          "tools/docker-compose/*.md",
           {
-            "input": "./tools/migrations/src",
+            "input": "./tools/docker-compose/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./tools/migrations/src",
+            "input": "./tools/docker-compose/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./tools/migrations",
+            "input": "./tools/docker-compose",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./tools/migrations",
+            "input": "./tools/docker-compose",
             "glob": "executors.json",
             "output": "."
           }

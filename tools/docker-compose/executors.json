@@ -1,9 +1,9 @@
 {
   "executors": {
-    "run": {
+    "docker-compose": {
       "implementation": "./src/executors/run/executor",
       "schema": "./src/executors/run/schema.json",
-      "description": "run migrations"
+      "description": "docker-compose executor"
     }
   }
 }

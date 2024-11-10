@@ -1,0 +1,41 @@
+{
+  "name": "database",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/database/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/database",
+        "main": "tools/database/src/index.ts",
+        "tsConfig": "tools/database/tsconfig.lib.json",
+        "assets": [
+          "tools/database/*.md",
+          {
+            "input": "./tools/database/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/database/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/database",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/database",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

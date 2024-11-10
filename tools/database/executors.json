@@ -1,0 +1,14 @@
+{
+  "executors": {
+    "migrations": {
+      "implementation": "./src/executors/migrations/executor",
+      "schema": "./src/executors/migrations/schema.json",
+      "description": "migrations executor"
+    },
+    "generate-types": {
+      "implementation": "./src/executors/generate-types/executor",
+      "schema": "./src/executors/generate-types/schema.json",
+      "description": "generate-types executor"
+    }
+  }
+}

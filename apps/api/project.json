@@ -3,12 +3,46 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/api/src",
   "projectType": "application",
-  "tags": [],
+  "tags": ["type:app", "scope:api"],
   "targets": {
+    "local:env": {
+      "executor": "nx:run-commands",
+      "options": {
+        "parallel": false,
+        "commands": [
+          {
+            "command": "nx docker-compose api"
+          },
+          {
+            "command": "nx migrations api"
+          },
+          {
+            "command": "nx db:types api"
+          },
+          {
+            "command": "nx build api"
+          }
+        ]
+      }
+    },
+    "docker-compose": {
+      "executor": "@acme/docker-compose:docker-compose",
+      "options": {
+        "projectFile": "apps/api/docker-compose.yaml",
+        "command": "up"
+      }
+    },
     "migrations": {
-      "executor": "@acme/migrations:run",
+      "executor": "@acme/database:migrations",
       "options": {
         "config": "apps/api/.postgratorrc.json"
+      }
+    },
+    "db:types": {
+      "executor": "@acme/database:generate-types",
+      "options": {
+        "envFile": "apps/api/.env",
+        "output": "apps/api/src/generated/db.ts"
       }
     },
     "build": {
