@@ -1,0 +1,26 @@
+{
+  "name": "characters-api",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/characters/shared/api/src",
+  "projectType": "library",
+  "tags": ["types:api-definition", "scope:characters"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/characters/shared/api",
+        "main": "packages/characters/shared/api/src/index.ts",
+        "tsConfig": "packages/characters/shared/api/tsconfig.lib.json",
+        "assets": []
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../../coverage/packages/characters/shared/api"
+      }
+    }
+  }
+}
