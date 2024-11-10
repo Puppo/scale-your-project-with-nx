@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "to": {
+      "type": "number",
+      "description": "Version of the migration"
+    },
+    "config": {
+      "type": "string",
+      "description": "Path to the postgrator config file"
+    }
+  },
+  "required": ["config"]
+}

@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@acme/characters-api": ["packages/characters/shared/api/src/index.ts"]
+      "@acme/characters-api": ["packages/characters/shared/api/src/index.ts"],
+      "@acme/migrations": ["tools/migrations/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
