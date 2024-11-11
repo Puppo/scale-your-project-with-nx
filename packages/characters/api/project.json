@@ -1,0 +1,17 @@
+{
+  "name": "characters-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/characters/api/src",
+  "projectType": "library",
+  "tags": ["types:api", "scope:characters"],
+  "// targets": "to see all targets run: nx show project characters-api --web",
+  "targets": {
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "../../../../coverage/packages/characters/shared/api"
+      }
+    }
+  }
+}
