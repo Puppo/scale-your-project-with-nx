@@ -7,6 +7,7 @@ export default async function routesModule(fastify: FastifyInstance) {
     dir: join(__dirname, "routes"),
     options: { prefix: "api/" },
     forceESM: true,
+    routeParams: true,
   });
 
 }
