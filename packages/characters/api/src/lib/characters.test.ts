@@ -23,22 +23,22 @@ describe('characters', () => {
     it('should parse a correct schema', () => {
       const date = new Date()
       const id = randomUUID()
-      expect(CharactersSchema.parse({
+      expect(CharactersSchema.parse([{
         id,
         name: 'name',
         description: 'description',
-        image: 'https://image.com',
+        imageUrl: 'https://image.com',
         createdAt: date,
         updatedAt: date,
-      }))
-        .toEqual({
+      }]))
+        .toEqual([{
           id,
           name: 'name',
           description: 'description',
-          image: 'https://image.com',
+          imageUrl: 'https://image.com',
           createdAt: date,
           updatedAt: date,
-        })
+        }])
     })
 
     it('should throw an error if the schema is incorrect', () => {

@@ -7,11 +7,10 @@ import { CharactersService } from './characters.service';
 @Component({
   standalone: true,
   selector: 'acme-character',
-  template: `<h1>Character</h1>
+  template: `<h2>Character</h2>
     <div>
       @if (character(); as item) {
-        <h1>{{item.name}}</h1>
-        <p>{{item.description}}</p>
+        <h3>{{item.name}}</h3>
         <img [src]="item.imageUrl" [alt]="item.name" />
       } @else {
         <p aria-hidden="true">Character not found.</p>
@@ -21,14 +20,14 @@ import { CharactersService } from './characters.service';
     `,
 })
 export class CharacterComponent {
-  id$ = new BehaviorSubject<string | undefined>(undefined);
-  character = toSignal(this.id$.pipe(
+  private id$ = new BehaviorSubject<string | undefined>(undefined);
+  protected character = toSignal(this.id$.pipe(
     filter(Boolean),
     switchMap((id) => this.charactersSv.retrieveById(id)),
     map((character) => CharacterSchema.parse(character)),
   ));
 
-  charactersSv = inject(CharactersService);
+  private readonly charactersSv = inject(CharactersService);
 
   @Input()
   set id(id: string) {

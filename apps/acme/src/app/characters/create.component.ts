@@ -9,7 +9,7 @@ import { CharactersService } from './characters.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   selector: 'acme-create-characters',
-  template: `<h1>Create Character</h1>
+  template: `<h2>Create Character</h2>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <label>
         Name

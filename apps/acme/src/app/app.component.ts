@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule],
   selector: 'acme-root',
-  template: `<h1>Welcome acme</h1>
+  template: `<h1>Welcome to Acme</h1>
     <nav>
       <a routerLink="/characters">Characters</a>
       <a routerLink="/characters/create">Create Character</a>

@@ -7,7 +7,7 @@ import { CharactersService } from './characters.service';
   standalone: true,
   imports: [RouterLink],
   selector: 'acme-characters',
-  template: `<h1>Characters</h1>
+  template: `<h2>Characters</h2>
     <ul>
       @for (item of characters(); track item.id) {
         <li>
